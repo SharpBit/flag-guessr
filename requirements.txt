@@ -3,3 +3,4 @@ numpy
 requests
 scikit-image
 Flask
+iso3166

@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-  <h1>Flag Guessr</h1>
-  <p>A GeoGuessr and wordle inspired game where you have to guess the flag based on pixel similarity.</p>
-</div>
+  <div>
+    <h1>Flag Guessr</h1>
+    <p>A GeoGuessr and wordle inspired game where you have to guess the flag based on pixel similarity.</p><br><br>
+  </div>
 
-<div>
-  <img src="{{ img_path }}" alt="Generated image">
-</div>
+  <div>
+    {% for path in img_paths %}
+      <img src="{{ path }}" alt="Generated image">
+    {% endfor %}
+    <form method="POST" action="/submit">
+      <div class="form-group">
+        <label for="country" class="label">Choose a country</label>
+        <input name="country" type="text" class="form-control" id="country" placeholder="" autocomplete="off"></input>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
 {% endblock %}
